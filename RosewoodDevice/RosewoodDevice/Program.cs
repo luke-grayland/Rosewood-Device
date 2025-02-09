@@ -1,18 +1,24 @@
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Options;
 using RosewoodDevice;
 using RosewoodDevice.Services;
 using RosewoodDevice.Services.Interfaces;
+using RosewoodDevice.Utilities;
 
 var builder = Host.CreateApplicationBuilder(args);
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("DeviceSettings"));
 builder.Services.AddHostedService<Worker>();
 
 builder.Services.AddSingleton<HubConnection>(provider =>
 {
     try
     {
+        var appSettings = provider.GetRequiredService<IOptions<AppSettings>>().Value;
+        
         Console.WriteLine("Attempting to connect to hub");
         var connection = new HubConnectionBuilder()
-            .WithUrl("https://localhost:7181/DeviceHub")
+            .WithUrl(appSettings.HubURL)
             .WithAutomaticReconnect()
             .Build();
 
@@ -21,7 +27,12 @@ builder.Services.AddSingleton<HubConnection>(provider =>
             Console.WriteLine("Reconnecting...");
             return Task.CompletedTask;
         };
-                
+
+        connection.On<string>("ReceiveCommand", (command) =>
+        {
+            Console.WriteLine($"Command received: {command}");
+        });
+        
         connection.StartAsync();
         Console.WriteLine("Connected to hub");
         return connection;

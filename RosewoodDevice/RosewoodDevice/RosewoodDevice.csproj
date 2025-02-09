@@ -10,5 +10,8 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
+		<None Update="appsettings.json">
+		    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		  </None>
     </ItemGroup>
 </Project>
