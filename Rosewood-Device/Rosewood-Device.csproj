@@ -8,6 +8,11 @@
         <RootNamespace>RosewoodDevice</RootNamespace>
     </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <PlatformTarget>ARM64</PlatformTarget>
+	  <PublishTrimmed>false</PublishTrimmed>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="9.0.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0"/>
