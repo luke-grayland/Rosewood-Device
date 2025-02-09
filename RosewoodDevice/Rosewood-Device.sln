@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosewoodDevice", "RosewoodDevice\RosewoodDevice.csproj", "{B8BF61C5-137A-46B6-82C7-EF5EB41F87F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rosewood-Device", "Rosewood-Device\Rosewood-Device.csproj", "{B8BF61C5-137A-46B6-82C7-EF5EB41F87F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

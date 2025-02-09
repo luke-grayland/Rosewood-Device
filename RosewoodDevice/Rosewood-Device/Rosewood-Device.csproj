@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UserSecretsId>dotnet-RosewoodDevice-d7f8b73b-2836-4d13-aaaf-b8c4a08b5b2a</UserSecretsId>
+        <RootNamespace>RosewoodDevice</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
